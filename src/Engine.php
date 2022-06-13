@@ -5,22 +5,19 @@ namespace Hexlet\Code\Engine;
 use function cli\line;
 use function cli\prompt;
 
-
 function engineGreeting()
 {
     line('Welcome to the Brain Game!');
     $name = prompt('May I have your name?');
     line('Hello, %s!', $name);
     return $name;
-
-}//end engineGreeting()
+}
 
 
 function printGameEssence(string $essence)
 {
     line($essence);
-
-}//end printGameEssence()
+}
 
 
 function engineCycle($name, callable $rule)
@@ -33,18 +30,17 @@ function engineCycle($name, callable $rule)
         if ($rightAnswer === $answer) {
             line('Correct!');
             if ($i === 2) {
-                line('Congratulations, '.$name.'!');
+                line('Congratulations, ' . $name . '!');
             }
         }
 
         if ($rightAnswer !== $answer) {
-            line($answer.' is wrong answer ;(. Correct answer was \''.$rightAnswer.'\'.');
+            line($answer . ' is wrong answer ;(. Correct answer was \'' . $rightAnswer . '\'.');
             line("Let's try again, %s!", $name);
             break;
         }
-    }//end for
-
-}//end engineCycle()
+    }
+}
 
 
 function getGCDBetween($a, $b)
@@ -53,9 +49,10 @@ function getGCDBetween($a, $b)
         $m = ($a % $b);
         $a = $b;
         $b = $m;
-    } return $a;
+    }
 
-}//end getGCDBetween()
+    return $a;
+}
 
 
 function is_prime($n)
@@ -67,5 +64,4 @@ function is_prime($n)
     }
 
     return true;
-
-}//end is_prime()
+}
