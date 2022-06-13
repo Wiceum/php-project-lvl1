@@ -25,7 +25,7 @@ function engineCycle(string $name, callable $rule)
     for ($i = 0; $i < 3; $i++) {
         $rightAnswer = $rule();
 
-        $answer = prompt('Your answer');
+        $answer = prompt('Your answer', '');
 
         if ($rightAnswer === $answer) {
             line('Correct!');
