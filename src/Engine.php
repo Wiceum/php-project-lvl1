@@ -20,7 +20,7 @@ function printGameEssence(string $essence)
 }
 
 
-function engineCycle($name, callable $rule)
+function engineCycle(string $name, callable $rule)
 {
     for ($i = 0; $i < 3; $i++) {
         $rightAnswer = $rule();
@@ -43,7 +43,7 @@ function engineCycle($name, callable $rule)
 }
 
 
-function getGCDBetween($a, $b)
+function getGCDBetween(int $a, int $b)
 {
     while ($b !== 0) {
         $m = ($a % $b);
@@ -55,7 +55,7 @@ function getGCDBetween($a, $b)
 }
 
 
-function is_prime($n)
+function is_prime(int $n)
 {
     for ($x = 2; $x <= sqrt($n); $x++) {
         if (($n % $x) === 0) {
