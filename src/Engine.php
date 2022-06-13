@@ -1,4 +1,5 @@
 <?php
+
 namespace Hexlet\Code\Engine;
 
 use function cli\line;
