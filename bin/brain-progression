@@ -1,0 +1,38 @@
+#!/usr/bin/env php
+<?php
+require $_composer_autoload_path ?? __DIR__.'/../vendor/autoload.php';
+
+use function Hexlet\Code\Engine\engineGreeting;
+use function Hexlet\Code\Engine\printGameEssence;
+use function Hexlet\Code\Engine\engineCycle;
+use function cli\line;
+
+$progressionRule = function (): string {
+    // rigthAnswer
+    $step     = mt_rand(2, 10);
+    $length   = mt_rand(5, 15);
+    $firstNum = mt_rand(0, 100);
+    $arr      = [];
+    $n        = mt_rand(0, ($length - 1));
+
+    for ($i = 0; $i < $length; $i++) {
+        if ($i === $n) {
+            $selected =  $firstNum + $i * $step;
+            $arr[] = '..';
+        } else {
+            $arr[] = ($firstNum + $i * $step);
+        }
+    }
+
+    $questionLine = implode(' ', $arr);
+
+    line('Question: '.trim($questionLine));
+
+    return $selected;
+
+};
+
+
+$name = engineGreeting();
+printGameEssence('What number is missing in the progression?');
+engineCycle($name, $progressionRule);

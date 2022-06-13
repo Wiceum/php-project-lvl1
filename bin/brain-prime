@@ -1,0 +1,23 @@
+#!/usr/bin/env php
+<?php
+require $_composer_autoload_path ?? __DIR__.'/../vendor/autoload.php';
+
+use function Hexlet\Code\Engine\engineGreeting;
+use function Hexlet\Code\Engine\printGameEssence;
+use function Hexlet\Code\Engine\engineCycle;
+use function Hexlet\Code\Engine\is_prime;
+use function cli\line;
+
+$gameRule = function (): string {
+    // rigthAnswer
+    $firstNum = mt_rand(1, 100);
+    line('Question: '.$firstNum);
+    $rightAnswer = is_prime($firstNum) ? 'yes' : 'no';
+    return $rightAnswer;
+
+};
+
+
+$name = engineGreeting();
+printGameEssence('Answer "yes" if given number is prime. Otherwise answer "no".');
+engineCycle($name, $gameRule);

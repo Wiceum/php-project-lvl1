@@ -1,0 +1,23 @@
+#!/usr/bin/env php
+<?php
+include $_composer_autoload_path ?? __DIR__ . '/../vendor/autoload.php';
+
+use function Hexlet\Code\Engine\engineGreeting;
+use function Hexlet\Code\Engine\printGameEssence;
+use function Hexlet\Code\Engine\engineCycle;
+use function Hexlet\Code\Engine\getGCDBetween;
+use function cli\line;
+
+$gcdRule = function (): string // rigthAnswer
+{
+    $firstNum   = mt_rand(1, 100);
+    $secondNum = mt_rand(1, 100);
+    line('Question: '. $firstNum.' '.$secondNum );
+
+    return getGCDBetween($firstNum, $secondNum);
+};
+
+
+$name = engineGreeting();
+printGameEssence('Find the greatest common divisor of given numbers.');
+engineCycle($name, $gcdRule);

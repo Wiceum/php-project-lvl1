@@ -1,0 +1,30 @@
+#!/usr/bin/env php
+<?php
+include $_composer_autoload_path ?? __DIR__ . '/../vendor/autoload.php';
+
+use function Hexlet\Code\Engine\engineGreeting;
+use function Hexlet\Code\Engine\printGameEssence;
+use function Hexlet\Code\Engine\engineCycle;
+
+use function cli\line;
+
+$calcRule = function (): string // rigthAnswer
+{
+    $signs = ['+', '-', '*'];
+    $sign = $signs[mt_rand(0, 2)];
+    $firstNum   = mt_rand(1, 15);
+    $secondNum = mt_rand(1, 15);
+    line('Question: '. $firstNum.' '.$sign.' '.$secondNum );
+
+    if ($sign === '+')
+    {
+        return $firstNum + $secondNum;
+    } elseif ($sign === '-') {
+        return $firstNum - $secondNum;
+    } else {
+        return $firstNum * $secondNum;
+    }
+};
+$name = engineGreeting();
+printGameEssence('What is the result of the expression?');
+engineCycle($name, $calcRule);
